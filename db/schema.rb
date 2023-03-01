@@ -10,9 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_190943) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_195246) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "date"
+    t.boolean "is_accepted"
+    t.bigint "user_id", null: false
+    t.bigint "mentorship_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mentorship_id"], name: "index_bookings_on_mentorship_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "mentorships", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "place"
+    t.boolean "is_remote"
+    t.boolean "is_hybrid"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mentorships_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.integer "rating"
+    t.text "content"
+    t.bigint "mentorship_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["mentorship_id"], name: "index_reviews_on_mentorship_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_190943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "mentorships"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "mentorships", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "mentorships"
 end
