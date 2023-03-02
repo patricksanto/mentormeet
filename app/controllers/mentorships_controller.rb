@@ -1,4 +1,5 @@
 class MentorshipsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_mentorship, only: [:show, :destroy, :edit, :update]
 
   def index

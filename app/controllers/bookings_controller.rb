@@ -53,6 +53,3 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:id_mentorship, :id_user, :date, :is_accepted)
   end
 end
-
-
-
