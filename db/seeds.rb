@@ -36,8 +36,8 @@ end
   )
   new_user.save
   new_mentorship = Mentorship.new(
-    title: Faker::Movies::HarryPotter.quote,
-    content: Faker::Lorem.paragraph(sentence_count: 10),
+    title: Faker::Book.title,
+    content: Faker::Lorem.paragraph(sentence_count: 7),
     place: Faker::Address.city
   )
   new_mentorship.user = new_user

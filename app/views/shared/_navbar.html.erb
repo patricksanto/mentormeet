@@ -12,7 +12,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Offer your Mentorship", "mentorships/new", class: "nav-link" %>
+            <div class="btn btn-warning mx-3 p-1 ">
+              <%= link_to "Offer your Mentorship", "mentorships/new", class: "nav-link" %>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/krokrob", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
