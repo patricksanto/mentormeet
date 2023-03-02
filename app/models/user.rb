@@ -5,7 +5,6 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :mentorships
-  has_many :reviews, through: :bookings
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
