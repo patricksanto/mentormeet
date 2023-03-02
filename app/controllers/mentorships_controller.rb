@@ -11,7 +11,7 @@ class MentorshipsController < ApplicationController
 
   def new
     @mentorship = Mentorship.new
-    authorize @mentorship
+    authorize @mentorship, :show?
   end
 
   def create
