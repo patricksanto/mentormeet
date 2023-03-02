@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-
   end
 
   def show
@@ -17,16 +16,17 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to  mentorships_path
+      redirect_to mentorships_path
     else
       render :new
     end
   end
 
   def edit
-    authorize @restaurant
+    authorize @booking
   end
 
   def update
