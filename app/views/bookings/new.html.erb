@@ -1,8 +1,9 @@
 <h1>Schedule your mentorship</h1>
 
-<div>
-  <%= simple_form_for(@booking) do |f| %>
-  <%= f.input :Date %>
-  <%= f.submit %>
-  <% end %>
+<div class="container">
+<%= simple_form_for [@mentorship, @booking], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :is_accepted, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+  <%= f.submit 'Schedule your mentorship' %>
+<% end %>
 </div>

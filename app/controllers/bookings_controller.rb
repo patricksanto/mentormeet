@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_mentorship, only: %i[new create]
   #INCOMPLETE CONTROLLER
 
   def index
@@ -17,6 +18,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.mentorship = @mentorship
     authorize @booking
     if @booking.save
       redirect_to mentorships_path
@@ -47,6 +49,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_mentorship
+    @mentorship = Mentorship.find(params[:mentorship_id])
   end
 
   def booking_params
