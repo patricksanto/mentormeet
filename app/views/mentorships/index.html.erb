@@ -1,1 +1,13 @@
-<h1>mentorship index</h1>
+<div>
+  <div class="container m-5 d-flex align-items-center justify-content-center">
+    <h1>mentorship index</h1>
+  </div>
+
+<div class="row">
+      <% @mentorships.each do |m| %>
+        <div class="card m-5 p-3 w-25 ">
+          <h3> <%= link_to m.title, mentorship_path(m)%></h3>
+          <p> <%= m.content%> </p>
+        </div>
+      <% end %>
+</div>
