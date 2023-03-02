@@ -1,9 +1,23 @@
-<div class = 'container'>
-  <div class = 'card'>
-<h1><%= @mentorship.title %></h1>
-<p><strong>About this mentorship:</strong> <%= @mentorship.content %></p>
-<p><strong>Where it will take place:</strong> <%= @mentorship.place %> </p>
-<p><strong>Mentor:</strong> <%= @mentorship.user.first_name + " " + @mentorship.user.last_name  %></p>
-</div>
+<div class="container p-5 d-flex justify-content-around">
+
+  <div class="w-50 justify-content-center">
+    <div class="p-2 ">
+      <h1><%= @mentorship.title %></h1>
+    </div>
+
+    <div class="p-2">
+      <p><strong>About this mentorship:</strong> <%= @mentorship.content %></p>
+    </div>
   </div>
 
+  <div class="w-30 justify-content-center border border-2 border-dark p-2 mb-2 rounded-4 border-opacity-75">
+    <div class="card p-2">
+      <img src="https://cinemaqui.com.br/wp-content/uploads/2015/01/whiplash-destaque.jpg" alt="foto do mentor" width="300">
+      <p><strong>Mentor:</strong> <%= @mentorship.user.first_name + " " + @mentorship.user.last_name  %></p>
+    </div>
+    <div class="p-2 ">
+      <p><strong>Where it will take place:</strong> <%= @mentorship.place %> </p>
+    </div>
+
+  </div>
+</div>
