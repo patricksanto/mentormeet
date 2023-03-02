@@ -5,3 +5,41 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+15.times do
+  User.create!(
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.street_address,
+    birthday: Faker::Date.in_date_period(year: 1984, month: 2),
+    city: Faker::Address.city,
+    bio: Faker::Lorem.paragraph,
+    password: '123456'
+  )
+end
+
+5.times do
+  new_user = User.new(
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    address: Faker::Address.street_address,
+    birthday: Faker::Date.in_date_period(year: 1984, month: 2),
+    city: Faker::Address.city,
+    bio: Faker::Lorem.paragraph,
+    is_mentor: true,
+    password: '123456'
+  )
+  new_user.save
+  new_mentorship = Mentorship.new(
+    title: Faker::Movies::HarryPotter.quote,
+    content: Faker::Lorem.paragraph(sentence_count: 10),
+    place: Faker::Address.city
+  )
+  new_mentorship.user = new_user
+  new_mentorship.save
+end
