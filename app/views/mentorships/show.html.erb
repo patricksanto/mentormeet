@@ -1,8 +1,6 @@
 <div class = 'container'>
   <div class = 'card'>
 <h1><%= @mentorship.title %></h1>
-    <%= f.input :photo, as: :file,
-                    required: true %>
 <p><strong>About this mentorship:</strong> <%= @mentorship.content %></p>
 <p><strong>Where it will take place:</strong> <%= @mentorship.place %> </p>
 <p><strong>Mentor:</strong> <%= @mentorship.user.first_name + " " + @mentorship.user.last_name  %></p>
