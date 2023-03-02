@@ -16,8 +16,10 @@ class MentorshipsController < ApplicationController
 
   def create
     @mentorship = Mentorship.new(mentorship_params)
+    @mentorship.user = current_user
+    authorize @mentorship
     if @mentorship.save
-      redirect to @mentorship
+      redirect_to mentorships_path(@mentorship)
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,6 +48,6 @@ class MentorshipsController < ApplicationController
   end
 
   def mentorship_params
-    params.require(:mentorship).permit(:name, :photo)
+    params.require(:mentorship).permit(:title, :content, :place)
   end
 end
