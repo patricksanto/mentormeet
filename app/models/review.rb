@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :mentorship
   belongs_to :booking
-  belongs_to :user, through: :booking
+
   validates :title, presence: true
   validates :title, length: { minumum: 5 }
   validates :rating, presence: true
