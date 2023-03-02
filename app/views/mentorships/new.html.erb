@@ -1,1 +1,9 @@
-<h1>new mentorship</h1>
+<h1>Create a new mentorship</h1>
+<%= simple_form_for(@mentorship) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :place %>
+  <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+  <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+  <%= f.submit %>
+<% end %>

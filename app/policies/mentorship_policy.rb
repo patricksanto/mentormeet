@@ -14,7 +14,7 @@ class MentorshipPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin
+    user
   end
 
   def update?
