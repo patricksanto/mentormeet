@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_205648) do
     t.string "title"
     t.text "content"
     t.string "place"
-    t.boolean "is_remote"
-    t.boolean "is_hybrid"
+    t.boolean "is_remote", default: false
+    t.boolean "is_hybrid", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
