@@ -4,5 +4,6 @@ class BookingPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+
   end
 end
