@@ -78,3 +78,5 @@ end
 
 #creating the devise user
 gem 'devise'
+
+gem 'pundit'
