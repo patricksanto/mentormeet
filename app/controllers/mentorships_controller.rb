@@ -2,14 +2,16 @@ class MentorshipsController < ApplicationController
   before_action :set_mentorship, only: [:show, :destroy, :edit, :update]
 
   def index
-    @mentorships = Mentorship.all
+    @mentorships = policy_scope(Mentorship)
   end
 
   def show
+    authorize @mentorship
   end
 
   def new
     @mentorship = Mentorship.new
+    authorize @mentorship
   end
 
   def create
@@ -22,14 +24,17 @@ class MentorshipsController < ApplicationController
   end
 
   def edit
+    authorize @mentorship
   end
 
   def update
+    authorize @mentorship
     @mentorship.update(mentorship_params)
     redirect_to mentorship_path(@mentorship)
   end
 
   def destroy
+    authorize @mentorship
     @mentorship.destroy
     redirect_to mentorships_path, status: :see_other
   end
