@@ -4,6 +4,13 @@ class MentorshipsController < ApplicationController
 
   def index
     @mentorships = policy_scope(Mentorship)
+    @markers = @mentorships.geocoded.map do |mentorship|
+      {
+        lat: mentorship.latitude,
+        lng: mentorship.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {mentorship: mentorship})
+      }
+    end
   end
 
   def show
@@ -51,6 +58,6 @@ class MentorshipsController < ApplicationController
   end
 
   def mentorship_params
-    params.require(:mentorship).permit(:title, :content, :place, :photo)
+    params.require(:mentorship).permit(:title, :content, :address, :photo)
   end
 end
