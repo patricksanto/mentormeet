@@ -51,6 +51,6 @@ class MentorshipsController < ApplicationController
   end
 
   def mentorship_params
-    params.require(:mentorship).permit(:title, :content, :place)
+    params.require(:mentorship).permit(:title, :content, :place, :photo)
   end
 end
