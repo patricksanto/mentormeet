@@ -11,4 +11,8 @@ class Mentorship < ApplicationRecord
   validates :content, length: { minimum: 100 }
   validates :place, presence: true
 
+  TAGS = ['Arts', 'Business', 'Sports', 'Tech', 'Self-development',
+          'Photography', 'Painting', 'Ceramics', 'Spirituality',
+          'Career', 'Books', 'Cuisine', 'Illustration', 'Woodwork']
+
 end
