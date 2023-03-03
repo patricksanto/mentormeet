@@ -11,7 +11,7 @@
 
     <% @mentorships.each do |m| %>
       <div class="card-trip col-3 p-0 hover">
-        <img src="<%= cl_image_path(m.photo.key, height: 300, crop: :fill) %>" />
+        <img src="<%= cl_image_path m.photo.key%>" />
           <div class="card-trip-infos">
             <div>
               <h2 class="my-2"><%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%></h2>
