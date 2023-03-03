@@ -1,15 +1,15 @@
 
-
 <div class="container mt-5">
 
   <div class="row">
 
     <div class="col-8">
       <h1 class="mb-0"><%= @mentorship.title %></h1>
-      <p class="text-secondary mt-1">A course by <%= @mentorship.user.first_name %><%= @mentorship.user.last_name %></p>
+      <p class="text-secondary mt-1">A course by <%= link_to @mentorship.user.first_name , user_path(@mentorship.user) , class: 'text-secondary'%></p>
       <div class="px-4 py-2 my-3" style="background-color: #FBE5D6; border-radius: 5px">
-        <span>Where: <%= @mentorship.place %></span>
+        <span>Where: <%= @mentorship.adress %></span>
         <p>About: </p>
+        
       </div>
       <div>
         <%= cl_image_tag @mentorship.photo.key, class: 'w-100 my-4', crop: :fill%>
@@ -32,6 +32,7 @@
       <p>40% OFF</p>
       <% if @mentorship_owner %>
         <button class="btn btn-primary"><%= link_to 'Edit', edit_mentorship_path(@mentorship), class: 'text-light text-decoration-none' %></button>
+        <%= button_to 'Delete', mentorship_path(@mentorship), method: :delete, class: 'btn btn-danger ml-2' %>
       <% else %>
         <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%></button>
       <% end %>

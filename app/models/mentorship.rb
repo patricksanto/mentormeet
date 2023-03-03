@@ -9,10 +9,7 @@ class Mentorship < ApplicationRecord
   validates :title, length: { minimum: 10 }
   validates :content, presence: true
   validates :content, length: { minimum: 100 }
-  validates :place, presence: true
-
-  TAGS = ['Arts', 'Business', 'Sports', 'Tech', 'Self-development',
-          'Photography', 'Painting', 'Ceramics', 'Spirituality',
-          'Career', 'Books', 'Cuisine', 'Illustration', 'Woodwork']
-
+  validates :address, presence: true
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
