@@ -32,6 +32,7 @@
       <p>40% OFF</p>
       <% if @mentorship_owner %>
         <button class="btn btn-primary"><%= link_to 'Edit', edit_mentorship_path(@mentorship), class: 'text-light text-decoration-none' %></button>
+        <%= button_to 'Delete', mentorship_path(@mentorship), method: :delete, class: 'btn btn-danger ml-2' %>
       <% else %>
         <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%></button>
       <% end %>
