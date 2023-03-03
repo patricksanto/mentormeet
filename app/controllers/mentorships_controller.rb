@@ -29,6 +29,16 @@ class MentorshipsController < ApplicationController
     @mentorship.user = current_user
     authorize @mentorship
     if @mentorship.save
+      params[:mentorship][:tag_ids].delete_at(0)
+      tags_array = params[:mentorship][:tag_ids]
+      tags_array.each do |tag|
+        @mentorship_tag = MentorshipTag.new
+        @mentorship_tag.tag_id = tag.to_i
+        @mentorship_tag.mentorship = @mentorship
+        @mentorship_tag.save!
+      end
+
+
       redirect_to mentorships_path(@mentorship)
     else
       render :new, status: :unprocessable_entity
@@ -53,11 +63,13 @@ class MentorshipsController < ApplicationController
 
   private
 
+
+
   def set_mentorship
     @mentorship = Mentorship.find(params[:id])
   end
 
   def mentorship_params
-    params.require(:mentorship).permit(:title, :content, :address, :photo)
+    params.require(:mentorship).permit(:title, :content, :address, :photo, tags: [])
   end
 end
