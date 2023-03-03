@@ -1,3 +1,4 @@
+
 <div class="container justify-content-center my-5">
   <div class="row justify-content-center">
     <div class="col-6">
@@ -5,7 +6,7 @@
         <%= simple_form_for(@mentorship) do |f| %>
           <%= f.input :title %>
           <%= f.input :content %>
-          <%= f.input :place %>
+          <%= f.input :address %>
           <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
           <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
           <%= f.input :photo, as: :file %>
@@ -14,3 +15,4 @@
     </div>
   </div>
 </div>
+
