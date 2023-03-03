@@ -8,7 +8,9 @@ class MentorshipsController < ApplicationController
 
   def show
     authorize @mentorship
+    @mentorship_owner = (@mentorship.user == current_user)
   end
+
 
   def new
     @mentorship = Mentorship.new

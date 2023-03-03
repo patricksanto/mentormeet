@@ -9,3 +9,14 @@
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
+
+<h1>edit mentorship</h1>
+<% if policy(@mentorship).update? %>
+  <%= simple_form_for @mentorship do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :place %>
+  <% end %>
+<% else %>
+  <p>Not authorized</p>
+<% end %>
