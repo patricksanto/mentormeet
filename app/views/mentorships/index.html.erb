@@ -1,22 +1,20 @@
 
-<h1>mentorship index</h1>
 
-<%= link_to "Add a new Mentorship", new_mentorship_path %>
+
 
 <div>
-  <div class="container m-5 d-flex align-items-center justify-content-center">
-    <h1>mentorship index</h1>
+  <div class="container my-5 d-flex align-text-center justify-content-center">
   </div>
 
 <div class="container">
-  <div class="row g-5 justify-content-center">
+  <div class="row g-5 justify-content-start">
 
     <% @mentorships.each do |m| %>
-      <div class="card-trip col-3 ">
+      <div class="card-trip col-3 p-0 hover">
         <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
           <div class="card-trip-infos">
             <div>
-              <h2><%= link_to m.title, mentorship_path(m), class:'text-decoration: none'%></h2>
+              <h2 class="my-2"><%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%></h2>
               <p><%= m.content %></p>
             </div>
               <%# <h2 class="card-trip-pricing">£99.99</h2> %>
