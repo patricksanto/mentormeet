@@ -5,7 +5,6 @@
   <%= f.input :place %>
   <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
   <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-  <%= f.input :photo, as: :file,
-                required: true %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
