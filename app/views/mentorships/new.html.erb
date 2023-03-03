@@ -9,6 +9,8 @@
           <%= f.input :address %>
           <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
           <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+          <%# <%= f.input :tags, as: :check_boxes, collection: Mentorship::TAGS, input_html: { multiple: true } %>
+          <%= f.association :tags %>
           <%= f.input :photo, as: :file %>
           <%= f.submit %>
         <% end %>

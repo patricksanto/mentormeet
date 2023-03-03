@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "mentorships#index"
 
   resources :mentorships do
+    resources :mentorship_tags, only: [:new, :create]
     resources :bookings, only: [:new, :create, :edit, :update] do
       resources :reviews, only: [:new, :create]
     end
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:destroy]
   resources :reviews, only: [:destroy]
   resources :users, only: [:show]
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
