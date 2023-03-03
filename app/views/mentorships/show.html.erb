@@ -16,7 +16,7 @@
       <p><strong>Mentor:</strong> <%= @mentorship.user.first_name + " " + @mentorship.user.last_name  %></p>
     </div>
     <div class="p-2 ">
-      <p><strong>Where it will take place:</strong> <%= @mentorship.place %> </p>
+      <p><strong>Where it will take address:</strong> <%= @mentorship.address %> </p>
     </div>
     <div>
     <% if @mentorship_owner %>
@@ -33,7 +33,7 @@
       <h1><%= @mentorship.title %></h1>
       <p class="text-secondary">A course by <%= @mentorship.user.first_name %><%= @mentorship.user.last_name %></p>
       <div class="px-4 py-2" style="background-color: #FBE5D6; border-radius: 5px">
-        <span>Where: <%= @mentorship.place %></span>
+        <span>Where: <%= @mentorship.address %></span>
         <p>just a text</p>
       </div>
       <div>
