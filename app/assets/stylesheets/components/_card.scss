@@ -3,31 +3,36 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  max-width: 20em;
+  max-width: 15em;
+  max-height: 20em;
   margin: 10px;
+  transition: .5s
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 40%;
   width: 100%;
   object-fit: cover;
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 10px;
   opacity: .7;
   margin: 0;
 }
 
+.card-trip:hover {
+  transform:scale(1.1);
+}
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 18px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

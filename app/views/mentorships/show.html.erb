@@ -18,6 +18,32 @@
     <div class="p-2 ">
       <p><strong>Where it will take place:</strong> <%= @mentorship.place %> </p>
     </div>
+    <div>
+    <% if @mentorship_owner %>
+      <%= link_to 'Edit', edit_mentorship_path(@mentorship) %>
+      <% end %>
+      </div>
 
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h1><%= @mentorship.title %></h1>
+      <p class="text-secondary">A course by <%= @mentorship.user.first_name %><%= @mentorship.user.last_name %></p>
+      <div class="px-4 py-2" style="background-color: #FBE5D6; border-radius: 5px">
+        <span>Where: <%= @mentorship.place %></span>
+        <p>just a text</p>
+      </div>
+      <div>
+        <%= cl_image_tag @mentorship.photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
+    </div>
+    <div class="col-4 bg-secondary-subtle p-4 shadow">
+      <h3>R$ 499</h3>
+      <p>40% OFF</p>
+      <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%></button>
+    </div>
   </div>
 </div>

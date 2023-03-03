@@ -8,7 +8,9 @@ class MentorshipsController < ApplicationController
 
   def show
     authorize @mentorship
+    @mentorship_owner = (@mentorship.user == current_user)
   end
+
 
   def new
     @mentorship = Mentorship.new
@@ -49,6 +51,6 @@ class MentorshipsController < ApplicationController
   end
 
   def mentorship_params
-    params.require(:mentorship).permit(:title, :content, :place)
+    params.require(:mentorship).permit(:title, :content, :place, :photo)
   end
 end
