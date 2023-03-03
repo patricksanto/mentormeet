@@ -6,7 +6,7 @@
 
     <div class="col-8">
       <h1 class="mb-0"><%= @mentorship.title %></h1>
-      <p class="text-secondary mt-1">A course by <%= @mentorship.user.first_name %><%= @mentorship.user.last_name %></p>
+      <p class="text-secondary mt-1">A course by <%= link_to @mentorship.user.first_name , user_path(@mentorship.user) , class: 'text-secondary'%></p>
       <div class="px-4 py-2 my-3" style="background-color: #FBE5D6; border-radius: 5px">
         <span>Where: <%= @mentorship.place %></span>
         <p>About: </p>
