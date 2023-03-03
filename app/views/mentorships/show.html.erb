@@ -1,49 +1,44 @@
-<div class="container p-5 d-flex justify-content-around">
 
-  <div class="w-50 justify-content-center">
-    <div class="p-2 ">
-      <h1><%= @mentorship.title %></h1>
-    </div>
+<div class="container mt-5">
 
-    <div class="p-2">
-      <p><strong>About this mentorship:</strong> <%= @mentorship.content %></p>
-    </div>
-  </div>
-
-  <div class="w-30 justify-content-center border border-2 border-dark p-2 mb-2 rounded-4 border-opacity-75">
-    <div class="card p-2">
-      <img src="https://cinemaqui.com.br/wp-content/uploads/2015/01/whiplash-destaque.jpg" alt="foto do mentor" width="300">
-      <p><strong>Mentor:</strong> <%= @mentorship.user.first_name + " " + @mentorship.user.last_name  %></p>
-    </div>
-    <div class="p-2 ">
-      <p><strong>Where it will take address:</strong> <%= @mentorship.address %> </p>
-    </div>
-    <div>
-    <% if @mentorship_owner %>
-      <%= link_to 'Edit', edit_mentorship_path(@mentorship) %>
-      <% end %>
-      </div>
-
-  </div>
-</div>
-
-<div class="container">
   <div class="row">
+
     <div class="col-8">
-      <h1><%= @mentorship.title %></h1>
-      <p class="text-secondary">A course by <%= @mentorship.user.first_name %><%= @mentorship.user.last_name %></p>
-      <div class="px-4 py-2" style="background-color: #FBE5D6; border-radius: 5px">
-        <span>Where: <%= @mentorship.address %></span>
-        <p>just a text</p>
+      <h1 class="mb-0"><%= @mentorship.title %></h1>
+      <p class="text-secondary mt-1">A course by <%= link_to @mentorship.user.first_name , user_path(@mentorship.user) , class: 'text-secondary'%></p>
+      <div class="px-4 py-2 my-3" style="background-color: #FBE5D6; border-radius: 5px">
+        <span>Where: <%= @mentorship.adress %></span>
+        <p>About: </p>
+        
       </div>
       <div>
-        <%= cl_image_tag @mentorship.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @mentorship.photo.key, class: 'w-100 my-4', crop: :fill%>
       </div>
+      <h4 class="text-secondary">About this Mentorship </h4>
+      <p class="text-secondary-emphasis"><%= @mentorship.content %></p>
     </div>
+
     <div class="col-4 bg-secondary-subtle p-4 shadow">
+      <div class="row">
+        <div class="col-8">
+          <h3><%= @mentorship.user.first_name %></h3>
+          <h5><%= @mentorship.user.last_name %></h5>
+        </div>
+        <div class="col-4">
+          <%= cl_image_tag @mentorship.user.photo.key, height: 80, width: 80, crop: :fill, class: 'rounded-circle' %>
+        </div>
+      </div>
       <h3>R$ 499</h3>
       <p>40% OFF</p>
-      <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%></button>
+      <% if @mentorship_owner %>
+        <button class="btn btn-primary"><%= link_to 'Edit', edit_mentorship_path(@mentorship), class: 'text-light text-decoration-none' %></button>
+        <%= button_to 'Delete', mentorship_path(@mentorship), method: :delete, class: 'btn btn-danger ml-2' %>
+      <% else %>
+        <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%></button>
+      <% end %>
     </div>
+
   </div>
+
+
 </div>

@@ -1,10 +1,18 @@
-<h1>Create a new mentorship</h1>
-<%= simple_form_for(@mentorship) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :address %>
-  <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-  <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+
+<div class="container justify-content-center my-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Create a new mentorship</h1>
+        <%= simple_form_for(@mentorship) do |f| %>
+          <%= f.input :title %>
+          <%= f.input :content %>
+          <%= f.input :address %>
+          <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+          <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+</div>
+

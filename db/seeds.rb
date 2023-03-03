@@ -1,3 +1,7 @@
+# Mentorship.destroy_all if Rails.env.development?
+Tag.destroy_all
+Mentorship.destroy_all
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -42,4 +46,13 @@ end
   )
   new_mentorship.user = new_user
   new_mentorship.save
+end
+
+tags = ['Arts', 'Business', 'Sports', 'Tech', 'Self-development',
+        'Photography', 'Painting', 'Ceramics', 'Spirituality',
+        'Career', 'Books', 'Cuisine', 'Illustration', 'Woodwork'
+]
+
+tags.each do |name|
+  Tag.create! name: name
 end
