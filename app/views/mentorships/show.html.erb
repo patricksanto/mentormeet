@@ -18,6 +18,11 @@
     <div class="p-2 ">
       <p><strong>Where it will take place:</strong> <%= @mentorship.place %> </p>
     </div>
+    <div>
+    <% if @mentorship_owner %>
+      <%= link_to 'Edit', edit_mentorship_path(@mentorship) %>
+      <% end %>
+      </div>
 
   </div>
 </div>
