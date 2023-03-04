@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container my-1">
     <%= link_to "/mentorships", class: "navbar-brand" do %>
       <%= image_tag "https://1000logos.net/wp-content/uploads/2022/10/MMs-Logo-1991.png" %>
     <% end %>
@@ -12,12 +12,12 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <div class="btn btn-warning mx-3 p-1 ">
-              <%= link_to "Offer your Mentorship", "mentorships/new", class: "nav-link" %>
+            <div class="btn btn-primary mx-3 p-1 rounded">
+              <%= link_to "Offer your Mentorship", new_mentorship_path , class: "nav-link text-light" %>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/krokrob", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key , class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
