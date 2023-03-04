@@ -6,12 +6,12 @@
   <div class="container my-5 d-flex align-text-center justify-content-center">
   </div>
 
-<div class="container">
-  <div class="row g-5 justify-content-start">
+<div class="container ">
+  <div class="row g-5 justify-content-start my-4">
 
     <% @mentorships.each do |m| %>
       <div class="card-trip col-3 p-0 hover">
-        <img src="<%= cl_image_path(m.photo.key, height: 300, crop: :fill) %>" />
+        <img src="<%= cl_image_path m.photo.key%>" />
           <div class="card-trip-infos">
             <div>
               <h2 class="my-2"><%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%></h2>
