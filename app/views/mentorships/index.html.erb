@@ -1,31 +1,32 @@
+<div class="container d-flex align-text-center justify-content-center">
 
 
+  <div class="row g-5 col-8 justify-content-start m-0">
 
-
-<div>
-  <div class="container my-5 d-flex align-text-center justify-content-center">
-  </div>
-
-<div class="container ">
-  <div class="row g-5 justify-content-start my-4">
-
-    <% @mentorships.each do |m| %>
-      <div class="card-trip col-3 p-0 hover">
-        <img src="<%= cl_image_path m.photo.key%>" />
-          <div class="card-trip-infos">
-            <div>
-              <h2 class="my-2"><%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%></h2>
-              <p><%= m.content %></p>
-            </div>
-              <%# <h2 class="card-trip-pricing">£99.99</h2> %>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <% @mentorships.each do |m| %>
+          <div class="card-trip col-3 p-0 hover m-5">
+            <img src="<%= cl_image_path m.photo.key%>" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2 class="my-2"><%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%></h2>
+                  <p><%= m.content %></p>
+                    <p><% m.tags.each do |tag| %>
+                      <span><%= tag.name %></span>
+                      <%end%>
+                  </p>
+                </div>
+                  <%# <h2 class="card-trip-pricing">£99.99</h2> %>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
           </div>
-        </div>
-    <% end %>
-  </div>
-  <div class="my-4" style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <%end%>
+    </div>
+
+  <div class="row col-4">
+    <div class="my-4" style="width: 100%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    >
   </div>
 </div>
