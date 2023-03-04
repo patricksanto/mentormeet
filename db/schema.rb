@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_03_03_174810) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,7 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_174810) do
   create_table "mentorships", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "tags", default: [], array: true
     t.string "address"
     t.boolean "is_remote", default: false
     t.boolean "is_hybrid", default: false
@@ -76,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_174810) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "tags", default: [], array: true
     t.index ["user_id"], name: "index_mentorships_on_user_id"
   end
 

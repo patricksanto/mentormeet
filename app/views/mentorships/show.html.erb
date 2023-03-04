@@ -30,6 +30,10 @@
       </div>
       <h3>R$ 499</h3>
       <p>40% OFF</p>
+      <p><% @mentorship.tags.each do |tag| %>
+        <span><%= tag.name %></span>
+        <%end%>
+      </p>
       <% if @mentorship_owner %>
         <button class="btn btn-primary"><%= link_to 'Edit', edit_mentorship_path(@mentorship), class: 'text-light text-decoration-none' %></button>
         <%= button_to 'Delete', mentorship_path(@mentorship), method: :delete, class: 'btn btn-danger ml-2' %>

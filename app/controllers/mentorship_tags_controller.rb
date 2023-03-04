@@ -1,7 +1,8 @@
 class MentorshipTagsController < ApplicationController
   def new
-    @plant_tag = PlantTag.new
+    @mentorshiptag = MentorshipTag.new
   end
+
 
   private
 
