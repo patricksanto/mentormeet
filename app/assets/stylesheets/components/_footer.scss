@@ -1,6 +1,7 @@
 .footer {
   background-color: #000000;
   padding: 10px 0;
+  text-size-adjust: 80%;
 }
 
 .footer-col {
@@ -8,10 +9,23 @@
   margin-bottom: 20px;
 }
 
+i {
+  height: 40px;
+  max-height: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: lightyellow;
+}
+
+ul {
+  list-style-type: none
+}
 .social-links a {
   color: #ffffff;
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 10px
 }
 
 .logo {
@@ -23,4 +37,3 @@
   max-width: 150px;
   max-height: 50px;
 }
-
