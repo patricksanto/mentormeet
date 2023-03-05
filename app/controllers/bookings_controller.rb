@@ -31,6 +31,10 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+
+
+
+
   def update
     if @booking.update(booking_params)
 
