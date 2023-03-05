@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-lewagon bg-light">
   <div class="container my-1">
     <%= link_to "/mentorships", class: "navbar-brand" do %>
       <%= image_tag "https://1000logos.net/wp-content/uploads/2022/10/MMs-Logo-1991.png" %>
@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <div class="btn btn-primary mx-3 p-1 rounded">
+            <div class="btn btn-primary mx-3 p-1 rounded-4">
               <%= link_to "Offer your Mentorship", new_mentorship_path , class: "nav-link text-light" %>
             </div>
           </li>
