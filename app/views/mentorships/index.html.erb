@@ -2,6 +2,7 @@
     <div class="d-flex align-text-center justify-content-center my-3 ">
 
       <div class="row g-5 col-9 justify-content-start m-0">
+          <%= render 'icon_navbar' %>
             <% @mentorships.each do |m| %>
                 <div class="card-trip col-3 p-0 hover mt-3">
                   <img src="<%= cl_image_path m.photo.key%>" />
