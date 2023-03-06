@@ -16,8 +16,11 @@ class Mentorship < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
-  pg_search_scope :search_by_title_and_content,
+  pg_search_scope :global_search,
                   against: %i[title content],
+                  associated_against: {
+                    user: %i[first_name last_name]
+                  },
                   using: {
                     tsearch: { prefix: true }
                   }
