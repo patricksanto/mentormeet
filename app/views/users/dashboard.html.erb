@@ -24,6 +24,7 @@
                 <% elsif booking.status = 'denied' %>
                   <span class="badge rounded-pill text-bg-danger">denied</span>
                 <% end %>
+                <%= link_to "add a review", new_mentorship_booking_review_path(booking.mentorship, booking.id) %>
               </div>
             </div>
           <% end %>

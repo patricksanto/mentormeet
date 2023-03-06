@@ -62,6 +62,7 @@
       <div class="my-4"><%= link_to 'Book your Mentorship!', new_mentorship_booking_path(@mentorship) %></div>
 
 
+
       <p><strong>Booking:</strong></p>
         <%= simple_form_for [@mentorship, @booking_new], data: { controller: 'flatpickr' } do |f| %>
           <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
