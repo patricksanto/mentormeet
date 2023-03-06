@@ -5,5 +5,4 @@ class Booking < ApplicationRecord
 
   enum status: [ :pending, :accepted, :denied ]
   validates :date, presence: true
-  validates :is_accepted, inclusion: { in: [ true, false ] }
 end

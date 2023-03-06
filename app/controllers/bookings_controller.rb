@@ -31,10 +31,6 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-
-
-
-
   def update
     if @booking.update(booking_params)
 
@@ -60,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:mentorship_id, :user_id, :date, :is_accepted)
+    params.require(:booking).permit(:mentorship_id, :user_id, :date, :status)
   end
 end
