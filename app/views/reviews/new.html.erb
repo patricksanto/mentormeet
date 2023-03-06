@@ -1,1 +1,9 @@
-<h1>oi</h1>
+<h1 class="text-center mb-5 justify-content: center">Add a review</h1>
+
+<div class="container">
+<%= simple_form_for [@mentorship, @review] do |f| %>
+  <%= f.input :rating, label: 'Rating (1-5)', type: 'number' ,{ min: 1, max: 5} %>
+  <%= f.input :content %>
+  <%= f.submit 'Review this mentorship' %>
+<% end %>
+</div>

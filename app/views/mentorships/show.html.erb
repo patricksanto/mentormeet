@@ -34,6 +34,18 @@
         <span><%= tag.name %></span>
         <%end%>
       </p>
+          <% if @booking  && @booking.user == current_user.id %>
+          <%= link_to 'add a review', new_mentorship_booking_review_path(@mentorship.booking), class: 'text-light text-decoration-none' %>
+          <% else %>
+          <% "add a review"%>
+
+        <% end %>
+
+
+
+
+
+
       <% if @mentorship_owner %>
         <button class="btn btn-primary"><%= link_to 'Edit', edit_mentorship_path(@mentorship), class: 'text-light text-decoration-none' %></button>
         <%= button_to 'Delete', mentorship_path(@mentorship), method: :delete, class: 'btn btn-danger ml-2' %>

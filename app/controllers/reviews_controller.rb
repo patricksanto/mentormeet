@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @mentorship = Mentorship.find(params)
     @review = Review.new(review_params)
     if @review.save
       redirect to @review

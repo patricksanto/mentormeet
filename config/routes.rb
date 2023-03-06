@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "mentorships#index"
 
   resources :mentorships do
-    resources :mentorship_tags, only: [:new, :create]
+   resources :mentorship_tags, only: [:new, :create]
     resources :bookings, only: [:new, :create, :edit, :update] do
       resources :reviews, only: [:new, :create]
     end
