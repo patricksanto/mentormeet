@@ -28,6 +28,9 @@ class MentorshipsController < ApplicationController
   def create
     @mentorship = Mentorship.new(mentorship_params)
     @mentorship.user = current_user
+    @mentorship.user.is_mentor = true
+    user = @mentorship.user
+    user.save
     authorize @mentorship
     if @mentorship.save
       params[:mentorship][:tag_ids].delete_at(0)

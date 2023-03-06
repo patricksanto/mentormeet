@@ -37,6 +37,7 @@
           <div class="col ">
             <h4 class="my-3">My infos</h4>
           </div>
+
           <div class="d-flex mb-3 col align-items-end">
             <%= link_to edit_user_registration_path(@user) do %>
               <i class="fas fa-user-edit"></i>
@@ -54,6 +55,17 @@
           <li class="list-group-item">Adress:      <%= @user.address %></li>
           <li class="list-group-item">City:        <%= @user.city %></li>
         </ul>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <% if @user.is_mentor%>
+          <h1>My mentorships agenda</h1>
+        <% end %>
       </div>
     </div>
 
