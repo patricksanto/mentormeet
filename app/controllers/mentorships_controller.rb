@@ -16,7 +16,12 @@ class MentorshipsController < ApplicationController
   def show
     authorize @mentorship
     @mentorship_owner = (@mentorship.user == current_user)
+    @booking = @mentorship.bookings.find_by(user_id: current_user.id)
+
+
   end
+
+
 
 
   def new

@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.mentorship = @mentorship
+    @booking.is_accepted = true
     authorize @booking
     if @booking.save
       redirect_to mentorships_path
@@ -30,6 +31,10 @@ class BookingsController < ApplicationController
   def edit
     authorize @booking
   end
+
+
+
+
 
   def update
     if @booking.update(booking_params)

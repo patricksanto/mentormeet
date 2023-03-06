@@ -1,20 +1,24 @@
 
-<div class="container justify-content-center my-5">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h1>Create a new mentorship</h1>
-        <%= simple_form_for(@mentorship) do |f| %>
-          <%= f.input :title %>
-          <%= f.input :content %>
-          <%= f.input :address,
-          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-          <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-          <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-          <%= f.association :tags %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit %>
-        <% end %>
+<div class="container">
+  <div class="crad p-4 m-4 shadow bg-light">
+    <div class="container justify-content-center my-5">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <h1>Create a new mentorship</h1>
+            <%= simple_form_for(@mentorship) do |f| %>
+              <%= f.input :title %>
+              <%= f.input :content %>
+              <%= f.input :address,
+              input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+              wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+              <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+              <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+              <%= f.association :tags, as: :check_boxes%>
+              <%= f.input :photo, as: :file %>
+              <%= f.submit %>
+            <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
