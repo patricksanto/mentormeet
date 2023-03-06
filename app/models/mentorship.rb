@@ -10,6 +10,8 @@ class Mentorship < ApplicationRecord
   validates :content, presence: true
   validates :content, length: { minimum: 100 }
   validates :address, presence: true
+  validates :callout, length: { minimum: 30 }
+  validates :callout, length: { maximum: 80 }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end
