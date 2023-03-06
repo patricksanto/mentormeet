@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[new destroy create]
 
   def new
-    @booking = Booking.find(params[:id])
     @review = Review.new
+    @mentorship = @booking.mentorship
   end
 
   def create
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_review
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
   end
 
   def review_params
