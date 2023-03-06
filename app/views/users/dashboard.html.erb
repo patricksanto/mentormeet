@@ -38,6 +38,7 @@
           <div class="col ">
             <h4 class="my-3">My infos</h4>
           </div>
+
           <div class="d-flex mb-3 col align-items-end">
             <%= link_to edit_user_registration_path(@user) do %>
               <i class="fas fa-user-edit"></i>
@@ -55,6 +56,37 @@
           <li class="list-group-item">Adress:      <%= @user.address %></li>
           <li class="list-group-item">City:        <%= @user.city %></li>
         </ul>
+
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col mt-3">
+        <% if @user.is_mentor%>
+          <h4>My mentorships agenda</h4>
+
+            <% current_user.mentorships.each do |mentorships|%>
+              <% mentorships.bookings.each do |booking| %>
+                <div class="card-product">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <div class="card-product-infos">
+
+                    <h2> <%= booking.date %> </h2>
+                      <%= simple_form_for booking do |f|%>
+                        <%= f.input :status, input_html: { value: '1' }, wrapper_html:{ class: 'd-none'}%>
+                        <%= button_tag type: 'submit', class: "button postfix" do %>
+                        <i class="far fa-check-circle" aria-hidden="true"></i>
+                        <% end %>
+                      <% end %>
+
+                    <p>Product description with <strong>relevant info</strong> only.</p>
+                   </div>
+                </div>
+              <% end %>
+            <% end %>
+        <% end %>
       </div>
     </div>
 
