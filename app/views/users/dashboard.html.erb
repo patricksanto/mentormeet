@@ -62,9 +62,26 @@
     </div>
 
     <div class="row">
-      <div class="col">
+      <div class="col mt-3">
         <% if @user.is_mentor%>
-          <h1>My mentorships agenda</h1>
+          <h4>My mentorships agenda</h4>
+
+            <% current_user.mentorships.each do |mentorships|%>
+              <% mentorships.bookings.each do |booking| %>
+                <div class="card-product">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <div class="card-product-infos">
+
+                    <h2> <%= booking.date %> </h2>
+                    <% raise %>
+                    <%= link_to 'Update enum', item_path(@item), data: { method: :patch,
+                                                 params: { item: { status: 1 } }} %>
+                    <i class="far fa-check-circle"></i>
+                    <p>Product description with <strong>relevant info</strong> only.</p>
+                   </div>
+                </div>
+              <% end %>
+            <% end %>
         <% end %>
       </div>
     </div>
