@@ -27,7 +27,9 @@
           <h5><%= @mentorship.user.last_name %></h5>
         </div>
         <div class="col-4">
+          <%= link_to dashboard_path do %>
           <%= cl_image_tag @mentorship.user.photo.key, height: 80, width: 80, crop: :fill, class: 'rounded-circle' %>
+           <% end %>
         </div>
       </div>
       <h3>R$ 499</h3>
@@ -65,6 +67,7 @@
       <p><strong>Booking:</strong></p>
         <%= simple_form_for [@mentorship, @booking_new], data: { controller: 'flatpickr' } do |f| %>
           <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+          <%= f.input :message, as: :text %>
           <%= f.submit 'Schedule your mentorship' %>
         <% end %>
     </div>
