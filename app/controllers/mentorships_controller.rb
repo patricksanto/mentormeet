@@ -4,6 +4,7 @@ class MentorshipsController < ApplicationController
 
   def index
     @mentorships = policy_scope(Mentorship)
+    @mentorships = Mentorship.globalsearch(params[:query]) if params[:query].present?
     @markers = @mentorships.geocoded.map do |mentorship|
       {
         lat: mentorship.latitude,
@@ -11,6 +12,7 @@ class MentorshipsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {mentorship: mentorship})
       }
     end
+
   end
 
   def show
