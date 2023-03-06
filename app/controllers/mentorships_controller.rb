@@ -12,7 +12,6 @@ class MentorshipsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {mentorship: mentorship})
       }
     end
-
   end
 
   def show
