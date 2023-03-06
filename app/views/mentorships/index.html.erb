@@ -3,7 +3,7 @@
 
       <div class="row g-5 col-9 justify-content-start m-0">
             <% @mentorships.each do |m| %>
-                <div class="card-trip col-3 p-0 hover mt-3">
+                <div class="card-trip col-3 p-0 hover mt-3 rounded-4">
                   <img src="<%= cl_image_path m.photo.key%>" />
                     <div class="card-trip-infos">
                       <div>
@@ -23,7 +23,7 @@
                         </p>
                         <%# <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black stretched-link"%>
 
-                        <p><%= m.content %></p>
+                        <p><%= m.callout %></p>
 
 
                       </div>

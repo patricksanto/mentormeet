@@ -2,6 +2,7 @@
 
 <%= simple_form_for(@mentorship) do |f| %>
   <%= f.input :title %>
+  <%= f.input :callout%>
   <%= f.input :content %>
   <%= f.input :address %>
   <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
