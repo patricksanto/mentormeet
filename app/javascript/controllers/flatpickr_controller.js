@@ -7,6 +7,10 @@ export default class extends Controller {
   static targets = [ "startTime" ]
 
   connect() {
-    flatpickr(this.startTimeTarget, {})
+    flatpickr(this.startTimeTarget, {
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",
+      minDate: "today"
+    })
   }
 }
