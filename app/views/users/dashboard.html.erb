@@ -17,6 +17,9 @@
               <div class="card-product-infos">
                 <h2><%= booking.mentorship.title %></h2>
               <p>With   <strong><%= booking.mentorship.user.first_name  %></strong> at: <%= booking.date %></p>
+                <% if booking.is_accepted %>
+
+                <% end %>
               </div>
             </div>
           <% end %>
