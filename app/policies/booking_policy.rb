@@ -8,4 +8,8 @@ class BookingPolicy < ApplicationPolicy
   def create?
     user
   end
+
+  def update?
+    record.mentorship.user == user
+  end
 end
