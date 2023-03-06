@@ -73,10 +73,13 @@
                   <div class="card-product-infos">
 
                     <h2> <%= booking.date %> </h2>
-                    <% raise %>
-                    <%= link_to 'Update enum', item_path(@item), data: { method: :patch,
-                                                 params: { item: { status: 1 } }} %>
-                    <i class="far fa-check-circle"></i>
+                      <%= simple_form_for booking do |f|%>
+                        <%= f.input :status, input_html: { value: '1' }, wrapper_html:{ class: 'd-none'}%>
+                        <%= button_tag type: 'submit', class: "button postfix" do %>
+                        <i class="far fa-check-circle" aria-hidden="true"></i>
+                        <% end %>
+                      <% end %>
+
                     <p>Product description with <strong>relevant info</strong> only.</p>
                    </div>
                 </div>

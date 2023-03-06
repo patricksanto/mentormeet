@@ -4,12 +4,12 @@ Rails.application.routes.draw do
 
   resources :mentorships do
    resources :mentorship_tags, only: [:new, :create]
-    resources :bookings, only: [:new, :create, :edit, :update] do
+    resources :bookings, only: [:new, :create, :edit] do
       resources :reviews, only: [:new, :create]
     end
   end
 
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy, :update]
   resources :reviews, only: [:destroy]
   resources :users, only: [:show]
 
