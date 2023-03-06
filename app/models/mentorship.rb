@@ -12,11 +12,12 @@ class Mentorship < ApplicationRecord
   validates :address, presence: true
   validates :callout, length: { minimum: 30 }
   validates :callout, length: { maximum: 80 }
+  validates :price, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
-  pg_search_scope :global_search,
+  pg_search_scope :globalsearch,
                   against: %i[title content],
                   associated_against: {
                     user: %i[first_name last_name]
