@@ -4,6 +4,7 @@ class MentorshipsController < ApplicationController
 
   def index
     @mentorships = policy_scope(Mentorship)
+    @mentorships = Mentorship.search_by_title_and_content(params[:query]) if params[:query].present?
     @markers = @mentorships.geocoded.map do |mentorship|
       {
         lat: mentorship.latitude,
@@ -11,14 +12,13 @@ class MentorshipsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {mentorship: mentorship})
       }
     end
+
   end
 
   def show
     authorize @mentorship
     @mentorship_owner = (@mentorship.user == current_user)
     @booking = @mentorship.bookings.find_by(user_id: current_user.id)
-
-
   end
 
 

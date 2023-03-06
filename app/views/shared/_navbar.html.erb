@@ -1,7 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-lewagon bg-light">
   <div class="container my-1">
     <%= link_to "/mentorships", class: "navbar-brand" do %>
-      <%= image_tag "https://1000logos.net/wp-content/uploads/2022/10/MMs-Logo-1991.png" %>
+      <%= image_tag('mentormeetlogo.png', style: 'height: 50%; width: 50%;') %>
+    <% end %>
+
+    <%= form_with url: mentorships_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,12 +21,12 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <div class="btn btn-primary mx-3 p-1 rounded-4">
-              <%= link_to "Offer your Mentorship", new_mentorship_path , class: "nav-link text-light" %>
+            <div id="offerbutton" class="btn btn-outline-primary mx-5 rounded-4">
+              <%= link_to "Offer your Mentorship", new_mentorship_path , class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.photo.key , width: 50, height: 50, crop: :thumb, gravity: :face, class: "rounded-circle dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <%= cl_image_tag current_user.photo.key , width: 40, height: 40, crop: :thumb, gravity: :face, class: "rounded-circle dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", dashboard_path , class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
