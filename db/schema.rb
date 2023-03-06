@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_175240) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "date", precision: nil
-    t.boolean "is_accepted", default: false
+    t.boolean "is_accepted"
     t.bigint "user_id", null: false
     t.bigint "mentorship_id", null: false
     t.datetime "created_at", null: false
