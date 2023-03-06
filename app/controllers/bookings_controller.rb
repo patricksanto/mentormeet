@@ -56,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:mentorship_id, :user_id, :date, :status)
+    params.require(:booking).permit(:mentorship_id, :user_id, :date, :status, :message)
   end
 end
