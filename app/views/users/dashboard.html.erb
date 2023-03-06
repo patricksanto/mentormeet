@@ -2,24 +2,36 @@
   <div class="crad p-4 m-4 shadow">
     <h2 class="mb-0 text-info-emphasis"><%= @user.first_name %></h2>
     <h3 class="text-secondary mt-0"><%= @user.last_name %></h3>
-    <%= link_to "Edit my profile", edit_user_registration_path(@user) %>
     <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       Launch demo modal
 </button> %>
-    <div class="row">
+    <div class="row mt-4">
       <div class="col">
-        <h3>My mentorships</h3>
-        <i class="fa-solid fa-pen"></i>
+        <h4>My Schedule</h4>
+
+        <% @user.bookings.each do |booking| %>
+          <div class="card-product my-4">
+            <%= cl_image_tag booking.mentorship.photo.key%>
+            <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+            <div class="card-product-infos">
+              <h2><%= booking.mentorship.title %></h2>
+             <p>With   <strong><%= booking.mentorship.user.first_name  %></strong> at: <%= booking.date %></p>
+            </div>
+          </div>
+        <% end %>
+
       </div>
+
       <div class="col">
         <div class="row">
+
           <div class="col ">
-            <h3 class="my-3">My infos</h3>
+            <h4 class="my-3">My infos</h4>
           </div>
           <div class="d-flex mb-3 col align-items-end">
-          <%= link_to edit_user_registration_path(@user) do %>
-            <i class="fa-solid fa-pen"></i>
-          <% end %>
+            <%= link_to edit_user_registration_path(@user) do %>
+              <i class="fas fa-user-edit"></i>
+            <% end %>
           </div>
 
         </div>
