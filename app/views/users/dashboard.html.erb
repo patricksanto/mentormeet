@@ -13,15 +13,14 @@
           <%= link_to mentorship_path(booking) do %>
             <div class="card-product my-4">
               <%= cl_image_tag booking.mentorship.photo.key%>
-              <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
               <div class="card-product-infos">
                 <h2><%= booking.mentorship.title %></h2>
               <p >With   <strong><%= booking.mentorship.user.first_name  %></strong> at: <%= booking.date %></p>
-                <% if booking.status = 'pending' %>
+                <% if booking.status == 'pending' %>
                   <span class="badge rounded-pill text-bg-secondary mt-2">pending</span>
-                <% elsif booking.status = 'accepted' %>
+                <% elsif booking.status == 'accepted' %>
                   <span class="badge rounded-pill text-bg-success">accepted</span>
-                <% elsif booking.status = 'denied' %>
+                <% elsif booking.status == 'denied' %>
                   <span class="badge rounded-pill text-bg-danger">denied</span>
                 <% end %>
                 <%= link_to "add a review", new_mentorship_booking_review_path(booking.mentorship, booking.id) %>
@@ -77,7 +76,14 @@
                       <%= simple_form_for booking do |f|%>
                         <%= f.input :status, input_html: { value: '1' }, wrapper_html:{ class: 'd-none'}%>
                         <%= button_tag type: 'submit', class: "button postfix" do %>
-                        <i class="far fa-check-circle" aria-hidden="true"></i>
+                          <i class="far fa-check-circle" aria-hidden="true"></i>
+                        <% end %>
+                      <% end %>
+
+                      <%= simple_form_for booking do |f|%>
+                        <%= f.input :status, input_html: { value: '2' }, wrapper_html:{ class: 'd-none'}%>
+                        <%= button_tag type: 'submit', class: "button postfix" do %>
+                          <i class="fas fa-minus-circle" aria-hidden="true"></i>
                         <% end %>
                       <% end %>
 

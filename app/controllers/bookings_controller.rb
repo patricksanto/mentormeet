@@ -32,13 +32,13 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
-    if @booking.update(booking_params)
-
-      redirect_to mentorships_path
-    else
-      render :edit
+    authorize @booking
+    if params[:booking][:status] == "2"
+      @booking.denied!
+    elsif params[:booking][:status] == "1"
+      @booking.accepted!
     end
+
   end
 
   def destroy
