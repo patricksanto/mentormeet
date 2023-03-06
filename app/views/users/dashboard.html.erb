@@ -16,9 +16,13 @@
               <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
               <div class="card-product-infos">
                 <h2><%= booking.mentorship.title %></h2>
-              <p>With   <strong><%= booking.mentorship.user.first_name  %></strong> at: <%= booking.date %></p>
-                <% if booking.is_accepted %>
-
+              <p >With   <strong><%= booking.mentorship.user.first_name  %></strong> at: <%= booking.date %></p>
+                <% if booking.status = 'pending' %>
+                  <span class="badge rounded-pill text-bg-secondary mt-2">pending</span>
+                <% elsif booking.status = 'accepted' %>
+                  <span class="badge rounded-pill text-bg-success">accepted</span>
+                <% elsif booking.status = 'denied' %>
+                  <span class="badge rounded-pill text-bg-danger">denied</span>
                 <% end %>
               </div>
             </div>
