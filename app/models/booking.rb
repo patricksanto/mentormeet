@@ -7,5 +7,4 @@ class Booking < ApplicationRecord
   validates :date, presence: true
   validates :message, presence: true
   validates :message, length: { minimum: 10 }
-  validates :message, length: { maximum: 50 }
 end

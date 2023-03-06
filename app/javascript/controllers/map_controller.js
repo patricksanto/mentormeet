@@ -12,16 +12,19 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10"
     })
-    map.scrollZoom.enable({around: 'center'});
+    this.map.scrollZoom.enable({around: 'center'});
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl }))
-    map.scrollZoom.enable({around: 'center'});
+    this.map.scrollZoom.enable({around: 'center'});
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html) // Add this
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup) // Add this
