@@ -5,15 +5,9 @@
   <%= f.input :callout%>
   <%= f.input :content %>
   <%= f.input :address %>
+  <%= f.input :price%>
   <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
   <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
-
-<h1>edit mentorship</h1>
-  <%= simple_form_for @mentorship do |f| %>
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.input :address %>
-  <% end %>
