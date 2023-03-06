@@ -1,8 +1,9 @@
 <h1 class="text-center mb-5 justify-content: center">Add a review</h1>
 
 <div class="container">
-<%= simple_form_for [@mentorship, @review] do |f| %>
-  <%= f.input :rating, label: 'Rating (1-5)', type: 'number' ,{ min: 1, max: 5} %>
+<%= simple_form_for [@mentorship, @booking, @review] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :rating, collection: (1..5).to_a, prompt: 'Select rating' %>
   <%= f.input :content %>
   <%= f.submit 'Review this mentorship' %>
 <% end %>

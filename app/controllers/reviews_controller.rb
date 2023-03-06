@@ -4,13 +4,19 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @mentorship = @booking.mentorship
+    # authorize @review
+    authorize @mentorship
   end
 
   def create
-    @mentorship = Mentorship.find(params)
+    @booking = Booking.find(params[:booking_id])
+    @mentorship = Mentorship.find(params[:mentorship_id])
     @review = Review.new(review_params)
-    if @review.save
-      redirect to @review
+    @review.mentorship = @mentorship
+    @review.booking = @booking
+    authorize @review
+    if @review.save!
+      redirect_to mentorship_path(@review.mentorship)
     else
       render :new, status: :unprocessable_entity
     end
