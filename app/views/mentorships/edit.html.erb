@@ -11,8 +11,14 @@
       <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
       <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
       <%= f.input :photo, as: :file %>
-      <%= f.submit %>
-    <% end %>
-
+    <div class="container d-flex justify-content-between">
+      <div class="row">
+        <%= f.submit %>
+      </div>
+        <div class="row">
+          <%= button_to "Back", mentorship_path(@mentorship), class: "border-0" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
