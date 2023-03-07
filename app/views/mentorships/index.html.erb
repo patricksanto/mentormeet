@@ -13,7 +13,7 @@
                         </h2>
 
                         <p class="fw-bold">
-                        Por <%= link_to "#{m.user.first_name} #{m.user.last_name}", user_path(m.user), class:"text-decoration-none text-black" %>
+                        por <%= link_to "#{m.user.first_name} #{m.user.last_name}", user_path(m.user), class:"text-decoration-none text-black" %>
                         </p>
 
                         <p class= "my-3" >
@@ -23,7 +23,7 @@
                         </p>
                         <%# <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black stretched-link"%>
 
-                        <p><%= m.callout %></p>
+                        <p class="text-black"><%= m.callout %></p>
 
 
                       </div>
