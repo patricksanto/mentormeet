@@ -10,7 +10,7 @@
         <h4>My Schedule</h4>
 
         <% @user.bookings.each do |booking| %>
-          <%= link_to mentorship_path(booking) do %>
+          <%= link_to mentorship_path(booking.mentorship) do %>
             <div class="card-product my-4">
               <%= cl_image_tag booking.mentorship.photo.key%>
               <div class="card-product-infos">
