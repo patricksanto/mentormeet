@@ -27,7 +27,7 @@
           <h5><%= @mentorship.user.last_name %></h5>
         </div>
         <div class="col-4">
-          <%= link_to dashboard_path do %>
+          <%= link_to user_path(@mentorship.user) do %>
           <%= cl_image_tag @mentorship.user.photo.key, height: 80, width: 80, crop: :fill, class: 'rounded-circle' %>
            <% end %>
         </div>
