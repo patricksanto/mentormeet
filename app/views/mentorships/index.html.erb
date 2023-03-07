@@ -10,38 +10,58 @@
             <div class="card-trip-infos">
               <div>
                 <h2 class="my-2">
-                <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%>
-                <%# tenho dúvidas se vale tentar transformar todo o card em clicável, o caminho seria stretched-link %>
+                  <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%>
+                  <%# tenho dúvidas se vale tentar transformar todo o card em clicável, o caminho seria stretched-link %>
                 </h2>
                 <p class="fw-bold">
-                por <%= link_to "#{m.user.first_name} #{m.user.last_name}", user_path(m.user), class:"text-decoration-none text-black" %>
+                  por <%= link_to "#{m.user.first_name} #{m.user.last_name}", user_path(m.user), class:"text-decoration-none text-black" %>
                 </p>
                 <p class= "my-3" >
                   <% m.tags.each do |tag| %>
                     <span class= "border border-gray rounded-5 px-2 py-1 "><%= tag.name %></span>
                   <%end%>
                 </p>
-                <%# <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black stretched-link"%>
+                  <%# <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black stretched-link"%>
                 <p class="text-black"><%= m.callout %></p>
               </div>
                 <%# <h2 class="card-trip-pricing">£99.99</h2> %>
-                <%= cl_image_tag m.user.photo.key , width: 50, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user rounded-circle"%>
+              <%= cl_image_tag m.user.photo.key , width: 50, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user rounded-circle"%>
             </div>
         </div>
       <%end%>
 
     </div>
+  </div>
+</div>
+
+
+
+
+  <div class="container-fluid text-light text-center bg-dark vh-20">
+    <h2 class=" p-3">Top Mentors:</h2>
+    <div class="container d-flex justify-content-between pb-3">
+          <% @users.each do |u|%>
+            <div class="d-flex flex-column">
+              <%= cl_image_tag u.photo.key , width: 100, height: 100, crop: :thumb, gravity: :face, class: "card-trip-user rounded-circle m-4"%>
+              <h6 class="fw-bolder"><%= link_to "#{u.first_name} #{u.last_name}", user_path(u), class:"text-decoration-none text-light" %></h6>
+            </div>
+        <%end%>
+
+    </div>
+  </div>
+
 
       <%# <div class="row col-3 wh-100 bg-light mt-3 border border-dark rounded-4 justify-content-center py-10"> %>
 
     <%# </div> %>
-  </div>
 
-   <div class="my-4 border border-dark b-3" style="width: 100%; height: 400px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-          >
+
+    <div class="my-4 border border-dark b-3" style="width: 100%; height: 400px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        >
+
     </div>
 
 </div>
