@@ -8,14 +8,16 @@
       <h1 class="mb-0 text-black"><%= @mentorship.title %></h1>
       <h3 class="text-dark"><%= @mentorship.callout%></h3>
       <p class="text-secondary mt-1">A course by <%= link_to @mentorship.user.first_name , user_path(@mentorship.user) , class: 'text-secondary'%></p>
+
       <div class="px-4 py-2 my-3" style="background-color: #FBE5D6; border-radius: 5px">
         <span>Where: <%= @mentorship.address %></span>
         <p>About: </p>
-
       </div>
+
       <div>
         <%= cl_image_tag @mentorship.photo.key, class: 'w-100 my-4', crop: :fill%>
       </div>
+
       <h4 class="text-secondary">About this Mentorship </h4>
       <p class="text-secondary-emphasis"><%= @mentorship.content %></p>
     </div>
@@ -32,8 +34,8 @@
            <% end %>
         </div>
       </div>
+
       <h3><%=@mentorship.price%> / hora</h3>
-      <p>40% OFF</p>
       <p><% @mentorship.tags.each do |tag| %>
         <span><%= tag.name %></span>
         <%end%>
@@ -42,13 +44,7 @@
           <%= link_to 'add a review', new_mentorship_booking_review_path(@mentorship.booking), class: 'text-light text-decoration-none' %>
           <% else %>
           <% "add a review"%>
-
-        <% end %>
-
-
-
-
-
+          <% end %>
 
       <% if @mentorship_owner %>
         <%= link_to edit_mentorship_path(@mentorship) do %>
@@ -75,5 +71,31 @@
 
   </div>
 
+  <div class="row">
+
+    <div class="col-8">
+
+      <% @mentorship.reviews.each do |review| %>
+        <div class="card mb-3 rounded" style="width: 100%">
+          <div class="card-header">
+
+            <div class="d-flex align-items-center">
+              <%= cl_image_tag review.booking.user.photo.key, width: 40, height: 40, crop: :fill , class: 'mx-3 rounded-circle'%>
+              <h6><%= review.booking.user.first_name %> <%= review.booking.user.last_name %> said: </h6>
+            </div>
+
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item "><p class="m-0 text-secondary" style="color: #a7a7a7"><%= review.title %> rating: <%= review.rating %></p>
+            <p class="m-0 text-body-tertiary" style="color: #a7a7a7"> <%= review.content %> </li>
+          </ul>
+
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
 
 </div>
