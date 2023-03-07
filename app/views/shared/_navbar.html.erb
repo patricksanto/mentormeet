@@ -3,13 +3,15 @@
     <%= link_to mentorships_path, class: "navbar-brand" do %>
       <%= image_tag('mentormeetlogo.png', style: 'height: 50%; width: 50%;') %>
     <% end %>
-    <%= form_with url: mentorships_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: mentorships_path, method: :get, class: "d-flex border rounded-5 border border-primary" do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control my-border-left",
       placeholder: "Search"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= button_tag(type: "submit", class: "btn btn-default") do %>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
