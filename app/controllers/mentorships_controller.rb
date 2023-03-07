@@ -3,6 +3,7 @@ class MentorshipsController < ApplicationController
   before_action :set_mentorship, only: [:show, :destroy, :edit, :update]
 
   def index
+    @users = User.all
     @mentorships = policy_scope(Mentorship)
     @mentorships = Mentorship.globalsearch(params[:query]) if params[:query].present?
     @markers = @mentorships.geocoded.map do |mentorship|

@@ -9,9 +9,8 @@
       <h3 class="text-dark"><%= @mentorship.callout%></h3>
       <p class="text-secondary mt-1">A course by <%= link_to @mentorship.user.first_name , user_path(@mentorship.user) , class: 'text-secondary'%></p>
 
-      <div class="px-4 py-2 my-3" style="background-color: #FBE5D6; border-radius: 5px">
-        <span>Where: <%= @mentorship.address %></span>
-        <p>About: </p>
+      <div class="px-4 py-2 my-3" style="background-color: #b1d8ff; border-radius: 5px">
+        <span class="text-black"><%= @mentorship.address %></span>
       </div>
 
       <div>
@@ -22,7 +21,7 @@
       <p class="text-secondary-emphasis"><%= @mentorship.content %></p>
     </div>
 
-    <div class="col-4 bg-secondary-subtle p-4 shadow">
+    <div class="col-4 bg-secondary-subtle p-4 shadow text-black">
       <div class="row">
         <div class="col-8">
           <h3><%= @mentorship.user.first_name %></h3>
@@ -43,11 +42,11 @@
 
       <% if @mentorship_owner %>
         <%= link_to edit_mentorship_path(@mentorship) do %>
-          <i class="fa-solid fa-pen-to-square m-2">Edit</i>
+          <i class="fa-solid fa-pen-to-square fa-xs"> Edit</i>
         <% end %>
         <br>
         <%= link_to mentorship_path(@mentorship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-          <i class="fa-solid fa-trash-can">Delete</i>
+          <i class="fa-solid fa-trash-can fa-xs"> Delete</i>
         <% end %>
       <% else %>
         <%# <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%>
