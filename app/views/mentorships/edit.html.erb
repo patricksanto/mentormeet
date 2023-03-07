@@ -1,13 +1,18 @@
-<h1>Edit mentorship</h1>
+<div class="container">
+  <div class="card p-4 m-4 shadow">
+    <h1>Edit mentorship</h1>
 
-<%= simple_form_for(@mentorship) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :callout%>
-  <%= f.input :content %>
-  <%= f.input :address %>
-  <%= f.input :price%>
-  <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-  <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+    <%= simple_form_for(@mentorship) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :callout%>
+      <%= f.input :content %>
+      <%= f.input :address %>
+      <%= f.input :price%>
+      <%= f.input :is_remote, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+      <%= f.input :is_hybrid, as: :boolean, checked_value: 'positive', unchecked_value: 'negative' %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit %>
+    <% end %>
+
+  </div>
+</div>

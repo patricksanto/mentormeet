@@ -40,19 +40,14 @@
         <span><%= tag.name %></span>
         <%end%>
       </p>
-          <% if @booking  && @booking.user == current_user.id %>
-          <%= link_to 'add a review', new_mentorship_booking_review_path(@mentorship.booking), class: 'text-light text-decoration-none' %>
-          <% else %>
-          <% "add a review"%>
-          <% end %>
 
       <% if @mentorship_owner %>
         <%= link_to edit_mentorship_path(@mentorship) do %>
-          <i class="fa-solid fa-pen-to-square m-2"> Edit</i>
+          <i class="fa-solid fa-pen-to-square m-2">Edit</i>
         <% end %>
         <br>
-        <%= link_to mentorship_path(@mentorship) do %>
-          <i class="fa-solid fa-trash-can"> Delete</i>
+        <%= link_to mentorship_path(@mentorship), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash-can">Delete</i>
         <% end %>
       <% else %>
         <%# <button class="btn btn-primary"><%= link_to "Booking this mentor", new_mentorship_booking_path(@mentorship) , class: 'text-light text-decoration-none'%>
