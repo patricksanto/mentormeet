@@ -1,46 +1,41 @@
 <div class= "container justify-content-center">
-    <div class="d-flex align-text-center justify-content-center my-3 ">
-
-      <div class="row g-5 col-9 justify-content-start m-0">
-            <% @mentorships.each do |m| %>
-                <div class="card-trip col-3 p-0 hover mt-3 rounded-4">
-                  <img src="<%= cl_image_path m.photo.key%>" />
-                    <div class="card-trip-infos">
-                      <div>
-                        <h2 class="my-2">
-                        <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%>
-                        <%# tenho dúvidas se vale tentar transformar todo o card em clicável, o caminho seria stretched-link %>
-                        </h2>
-
-                        <p class="fw-bold">
-                        por <%= link_to "#{m.user.first_name} #{m.user.last_name}", user_path(m.user), class:"text-decoration-none text-black" %>
-                        </p>
-
-                        <p class= "my-3" >
-                          <% m.tags.each do |tag| %>
-                            <span class= "border border-gray rounded-5 px-2 py-1 "><%= tag.name %></span>
-                          <%end%>
-                        </p>
-                        <%# <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black stretched-link"%>
-
-                        <p class="text-black"><%= m.callout %></p>
-
-
-                      </div>
-                        <%# <h2 class="card-trip-pricing">£99.99</h2> %>
-                        <%= cl_image_tag m.user.photo.key , width: 50, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user rounded-circle"%>
-                    </div>
-                </div>
-              <%end%>
+  <div class="d-flex align-text-center justify-content-center my-3 ">
+    <div class="row g-5 col-12 justify-content-start m-0">
+      <% @mentorships.each do |m| %>
+        <div class="card-trip col-3 p-0 hover mt-3 rounded-4">
+          <img src="<%= cl_image_path m.photo.key%>" />
+            <div class="card-trip-infos">
+              <div>
+                <h2 class="my-2">
+                <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black"%>
+                <%# tenho dúvidas se vale tentar transformar todo o card em clicável, o caminho seria stretched-link %>
+                </h2>
+                <p class="fw-bold">
+                por <%= link_to "#{m.user.first_name} #{m.user.last_name}", user_path(m.user), class:"text-decoration-none text-black" %>
+                </p>
+                <p class= "my-3" >
+                  <% m.tags.each do |tag| %>
+                    <span class= "border border-gray rounded-5 px-2 py-1 "><%= tag.name %></span>
+                  <%end%>
+                </p>
+                <%# <%= link_to m.title, mentorship_path(m), class:"text-decoration-none text-black stretched-link"%>
+                <p class="text-black"><%= m.callout %></p>
+              </div>
+                <%# <h2 class="card-trip-pricing">£99.99</h2> %>
+                <%= cl_image_tag m.user.photo.key , width: 50, height: 50, crop: :thumb, gravity: :face, class: "card-trip-user rounded-circle"%>
+            </div>
+        </div>
+      <%end%>
         </div>
 
-      <div class="row col-3 vh-100 bg-light mt-3 border border-dark rounded-4 justify-content-center py-10">
-          <div class="my-4 border border-dark b-3" style="width: 80%; height: 300px;"
+      <%# <div class="row col-3 wh-100 bg-light mt-3 border border-dark rounded-4 justify-content-center py-10"> %>
+
+    <%# </div> %>
+  </div>
+   <div class="my-4 border border-dark b-3" style="width: 100%; height: 400px;"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
           >
           </div>
-    </div>
-  </div>
 </div>
